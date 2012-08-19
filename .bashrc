@@ -7,9 +7,9 @@ fi
 cd () 
 {
   if [ -n "$1" ]; then
-	builtin cd "$@" && ~/inf/watching/./lsc
+	builtin cd "$@" && ~/.local/bin/./lsc
   else
-	builtin cd "$@" && ~/inf/watching/./lsc
+	builtin cd "$@" && ~/.local/bin/./lsc
   fi
 }
 
@@ -21,21 +21,21 @@ if [ "$TERM" != dumb ]; then
 
 fi
 
-PATH=$PATH:/home/rafal/inf/watching/
 PATH=$PATH:/home/rafal/.local/bin/
 export PATH
 
-alias ls="~/inf/watching/./lsc"
+alias ls="~/.local/bin/lsc"
 alias mvcd="mv $1 $2 && cd $2"
 alias musb="sudo mount /dev/sdb/ /media/"
 alias po="sudo poweroff"
+alias reboot="sudo reboot"
 alias la="ls -a"
-alias install="sudo apt-get install"
+alias install="sudo apt-get update && sudo apt-get upgrade && sudo apt-get install"
 alias remove="sudo apt-get remove"
 alias vol="amixer set Master"
 alias emacs="emacs --fullscreen --no-splash"
-alias mplayer="mplayer -msglevel all=0"
+alias mplayer="mplayer -fs -msglevel all=0"
+alias g++="g++-4.4"
 
 #on start:
 #fortune -a
-#~/inf/bash/reminder/./reminder.sh

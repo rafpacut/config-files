@@ -14,12 +14,10 @@
 # wmnd &
 # wmsmixer -w &
 # idesk &
-
 gnome-terminal &
+"$HOME/.local/bin/./random_welcoming_screen" &
 
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.
 
 exec fluxbox
-# or if you want to keep a log:
-# exec fluxbox -log "/home/rafal/.fluxbox/log"

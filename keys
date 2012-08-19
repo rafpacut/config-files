@@ -141,3 +141,6 @@ Control Mod1 r :Exec fbsetbg -r ~/.fluxbox/backgrounds
 
 #opera init
 Control Mod1 o :Exec opera
+
+#show time
+Control e :Exec $HOME/.local/bin/./time-popup
