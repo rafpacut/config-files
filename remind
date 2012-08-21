@@ -1,0 +1,13 @@
+#!/bin/bash
+#To Do notes: - jako czas przyjmuj hh:mm i | cut wyjmuj czas dzialania,
+
+hour=$1
+minutes=$2
+message=$3
+
+
+let time=$hour*60+$minutes
+let actual_time=`date +%H`*60+`date +%M`
+let time2sleep=$time-$actual_time
+sleep "$time2sleep"m
+notify-send -u critical "$time" "$message"
