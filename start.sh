@@ -2,7 +2,7 @@
 echo "configuring shell"
 mv .bashrc $HOME/
 echo "installing to-do manager:"
-git clone git@github.com:asb/sh-todo.git
+git clone git@github.com:asb/sh-todo.git $HOME/inf/sh-todo
 mv .sh-todo $HOME/
 echo "configuring fluxbox"
 mv init $HOME/.fluxbox/
