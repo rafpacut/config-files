@@ -7,6 +7,7 @@ mv .bashrc $HOME/
 name1=keepassx
 name2=opera
 name3=git
+name4=lsscsi
 
 for i in {name1..name3}
 do
