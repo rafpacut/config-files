@@ -1,6 +1,17 @@
 #!/bin/bash
+
 echo "configuring shell"
 mv .bashrc $HOME/
+
+#checking whether necessary programs are installed:
+name1=keepassx
+name2=opera
+name3=git
+
+for i in {name1..name3}
+do
+	command -v $i >/dev/null && echo "$i exists" || install $i
+done
 
 #my own PATH dir
 echo "making .local/bin"
