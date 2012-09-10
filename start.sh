@@ -8,8 +8,9 @@ name1=keepassx
 name2=opera
 name3=git
 name4=lsscsi
+name5=soundconverter
 
-for i in {name1..name3}
+for i in {name1..name5}
 do
 	command -v $i >/dev/null && echo "$i exists" || install $i
 done
