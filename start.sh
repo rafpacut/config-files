@@ -9,11 +9,17 @@ name2=opera
 name3=git
 name4=lsscsi
 name5=soundconverter
+name6=pidgin
 
-for i in {name1..name5}
+for i in {name1..name6}
 do
 	command -v $i >/dev/null && echo "$i exists" || install $i
 done
+
+echo "Download keepassx database"
+xdg-open 'https://sites.google.com/site/rafalpacut/'
+echo "are you done? [y/n]"
+read trigger
 
 #my own PATH dir
 echo "making .local/bin"
@@ -26,6 +32,40 @@ mkdir $HOME/inf
 echo "installing to-do manager:"
 instal_dir=$HOME/inf/sh-todo
 path_dir=$HOME/.local/bin
+
+echo "configurating git: "
+
+your_name='.'
+your_name2=','
+while [ $your_name != $your_name2 ]; do
+	echo "enter your name: "
+	read your_name
+	echo "please enter your name once more: "
+	read your_name2
+done
+git config --global user.name "$your_name"
+
+your_email='.'
+your_email2=','
+while [ $your_email != $your_email2 ];do
+	echo "enter your email: "
+	read your_email
+	echo "please enter your email once more: "
+	read your_email2
+done
+git config --global user.email "$your_email"
+echo "configuring git connection via ssh: "
+echo "do you want to continue?[y/n]"
+read flag
+if [ $flag='y' ]; then
+
+	if [ -d ~/.ssh ]; then
+		mkdir ~/.ssh/key_backup
+		cp id_rsa* ~/.ssh/key_backup
+		rm ~/.ssh/id_rsa*
+	fi
+	ssh-keygen -t rsa -C "$your_email"
+fi
 
 git clone git@github.com:asb/sh-todo.git $instal_dir
 mv .sh-todo $HOME/
