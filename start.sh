@@ -2,6 +2,7 @@
 
 echo "configuring shell"
 mv .bashrc $HOME/
+source ~/.bashrc
 
 #checking whether necessary programs are installed:
 name1=keepassx
@@ -28,10 +29,6 @@ mkdir $HOME/.local/bin
 #my own inf file
 echo "making inf file"
 mkdir $HOME/inf
-
-echo "installing to-do manager:"
-instal_dir=$HOME/inf/sh-todo
-path_dir=$HOME/.local/bin
 
 echo "configurating git: "
 
@@ -66,6 +63,10 @@ if [ $flag='y' ]; then
 	fi
 	ssh-keygen -t rsa -C "$your_email"
 fi
+
+echo "installing to-do manager:"
+instal_dir=$HOME/inf/sh-todo
+path_dir=$HOME/.local/bin
 
 git clone git@github.com:asb/sh-todo.git $instal_dir
 mv .sh-todo $HOME/
