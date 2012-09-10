@@ -63,6 +63,11 @@ if [ $flag='y' ]; then
 	fi
 	ssh-keygen -t rsa -C '$your_email'
 fi
+echo "add your public key to git: "
+nano ~/.ssh.id_rsa.pub
+xdg-open 'https://github.com/login'
+echo "are you done? [y/n]"
+read trigger
 
 echo "installing to-do manager:"
 instal_dir=$HOME/inf/sh-todo
