@@ -12,9 +12,18 @@ name4=lsscsi
 name5=soundconverter
 name6=pidgin
 
+sudo apt-get update
+sudo apt-get upgrade
+
 for i in {name1..name6}
 do
-	command -v $i >/dev/null && echo "$i exists" || install $i
+#	command -v $i >/dev/null && echo "$i exists" || install $i
+	if [ `which $i` ];then
+			echo "$i exists"
+		else
+			echo "$i doesn't exist"
+			sudo apt-get install $i
+	fi
 done
 
 echo "Download keepassx database"
