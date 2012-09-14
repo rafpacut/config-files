@@ -27,9 +27,8 @@ do
 done
 
 echo "Download keepassx database"
-xdg-open 'https://sites.google.com/site/rafalpacut/'
-echo "are you done? [y/n]"
-read trigger
+#xdg-open 'https://sites.google.com/site/rafalpacut/'
+wget "https://sites.google.com/site/rafalpacut/home/files/Rafal.kdb?attredirects=0&d=1 > ~/.Rafal.kdb"
 
 #my own PATH dir
 echo "making .local/bin"
