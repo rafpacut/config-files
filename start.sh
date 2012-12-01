@@ -66,13 +66,14 @@ if [ $flag='y' ]; then
 
 	if [ -d ~/.ssh ]; then
 		mkdir ~/.ssh/key_backup
-		cp id_rsa* ~/.ssh/key_backup
+		cp ~/.ssh/id_rsa* ~/.ssh/key_backup
 		rm ~/.ssh/id_rsa*
 	fi
 	ssh-keygen -t rsa -C '$your_email'
 fi
 echo "add your public key to git: "
 nano ~/.ssh.id_rsa.pub
+keepassx &
 xdg-open 'https://github.com/login'
 echo "are you done? [y/n]"
 read trigger
