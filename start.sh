@@ -11,11 +11,12 @@ name3=git
 name4=lsscsi
 name5=soundconverter
 name6=pidgin
+name7=thunar
 
 sudo apt-get update
 sudo apt-get upgrade
 
-for i in {name1..name6}
+for i in {name1..name7}
 do
 #	command -v $i >/dev/null && echo "$i exists" || install $i
 	if [ `which $i` ];then
