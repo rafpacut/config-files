@@ -7,9 +7,9 @@ fi
 cd () 
 {
   if [ -n "$1" ]; then
-	builtin cd "$@" && ~/.local/bin/./lsc
+	builtin cd "$@" && \ls
   else
-	builtin cd "$@" && ~/.local/bin/./lsc
+	builtin cd "$@" && \ls
   fi
 }
 
@@ -24,7 +24,8 @@ fi
 PATH=$PATH:/home/rafal/.local/bin/
 export PATH
 
-alias ls="~/.local/bin/lsc"
+
+alias ls="\ls"
 alias mvcd="mv $1 $2 && cd $2"
 alias musb="sudo mount /dev/sdb/ /media/"
 alias po="sudo poweroff"
@@ -35,7 +36,7 @@ alias remove="sudo apt-get remove"
 alias vol="amixer set Master"
 alias emacs="emacs --fullscreen --no-splash"
 alias mplayer="mplayer -fs -msglevel all=0"
-alias g++="g++-4.4"
+#alias g++="g++-4.4"
 
 #on start:
 #fortune -a
