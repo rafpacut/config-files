@@ -3,20 +3,17 @@
 echo "configuring shell"
 mv .bashrc $HOME/
 source ~/.bashrc
+echo " swap ctrl and caps lock "
+mv .Xmodmap $HOME/
+xmodmap $HOME/.Xmodmap
 
 #checking whether necessary programs are installed:
-name1=keepassx
-name2=opera
-name3=git
-name4=lsscsi
-name5=soundconverter
-name6=pidgin
-name7=thunar
+declare -a applications=( keepassx opera git lsscsi soundconverter pidgin fluxbox)
 
 sudo apt-get update
 sudo apt-get upgrade
 
-for i in {name1..name7}
+for i in ${applications[@]}
 do
 #	command -v $i >/dev/null && echo "$i exists" || install $i
 	if [ `which $i` ];then
@@ -29,7 +26,7 @@ done
 
 echo "Download keepassx database"
 #xdg-open 'https://sites.google.com/site/rafalpacut/'
-wget "https://sites.google.com/site/rafalpacut/home/files/Rafal.kdb?attredirects=0&d=1 > ~/.Rafal.kdb"
+wget "https://sites.google.com/site/rafalpacut/home/files/Rafal.kdb?attredirects=0&d=1" > "~/.Rafal.kdb"
 
 #my own PATH dir
 echo "making .local/bin"
@@ -73,7 +70,7 @@ if [ $flag='y' ]; then
 	ssh-keygen -t rsa -C '$your_email'
 fi
 echo "add your public key to git: "
-nano ~/.ssh.id_rsa.pub
+nano ~/.ssh/id_rsa.pub
 keepassx &
 xdg-open 'https://github.com/login'
 echo "are you done? [y/n]"
@@ -104,7 +101,5 @@ path_dir=$HOME/.local/bin
 mv random_welcoming_screen $path_dir/
 echo " time popup, "
 mv time-popup $path_dir/
-echo " swap ctrl and caps lock "
-mv .Xmodmap $HOME/
 echo "reminding script,"
 mv remind $path_dir/
