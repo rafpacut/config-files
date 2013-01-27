@@ -103,3 +103,4 @@ echo " time popup, "
 mv time-popup $path_dir/
 echo "reminding script,"
 mv remind $path_dir/
+xmodmap ~/.Xmodmap
