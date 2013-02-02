@@ -84,8 +84,9 @@ git clone git@github.com:asb/sh-todo.git $instal_dir
 mv .sh-todo $HOME/
 mkdir $instal_dir/files
 mkdir $path_dir/sh-todo
-cp $instal_dir/todo $path_dir/sh-todo/
-cp $instal_dir/todone $path_dir/sh-todo/
+cp $instal_dir/todo $path_dir/
+cp $instal_dir/todone $path_dir/
+cp $instal_dir/todone-archive $path_dir/
 
 echo "configuring fluxbox"
 instal_dir=$HOME/.fluxbox
