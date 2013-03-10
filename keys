@@ -147,3 +147,6 @@ Control e :Exec $HOME/.local/bin/./time-popup
 
 #maximize current window
  Control Mod1 m :Maximize 
+
+#lock screen
+Control Mod1 l :Exec gnome-screensaver-command -a
