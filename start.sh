@@ -46,7 +46,7 @@ while [ $your_name != $your_name2 ]; do
 	echo "please enter your name once more: "
 	read your_name2
 done
-git config --global user.name '$your_name'
+git config --global user.name "$your_name"
 
 your_email='.'
 your_email2=','
@@ -56,7 +56,7 @@ while [ $your_email != $your_email2 ];do
 	echo "please enter your email once more: "
 	read your_email2
 done
-git config --global user.email '$your_email'
+git config --global user.email "$your_email"
 echo "configuring git connection via ssh: "
 echo "do you want to continue?[y/n]"
 read flag
@@ -67,7 +67,7 @@ if [ $flag='y' ]; then
 		cp ~/.ssh/id_rsa* ~/.ssh/key_backup
 		rm ~/.ssh/id_rsa*
 	fi
-	ssh-keygen -t rsa -C '$your_email'
+	ssh-keygen -t rsa -C "$your_email"
 fi
 echo "add your public key to git: "
 nano ~/.ssh/id_rsa.pub
