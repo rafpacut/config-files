@@ -150,3 +150,6 @@ Control e :Exec $HOME/.local/bin/./time-popup
 
 #lock screen
 Control Mod1 l :Exec gnome-screensaver-command -a
+
+#switch the keyboard layouts
+Control Mod1 k :ToggleCmd {Exec setxkbmap us dvp && xmodmap ~/.Xmodmap}  {Exec setxkbmap us && xmodmap ~/.Xmodmap}
