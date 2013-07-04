@@ -8,7 +8,7 @@ mv .Xmodmap $HOME/
 xmodmap $HOME/.Xmodmap
 
 #checking whether necessary programs are installed:
-declare -a applications=( keepassx opera git lsscsi vlc pidgin fluxbox vim)
+declare -a applications=( keepassx opera git lsscsi vlc pidgin fluxbox vim libnotify-bin )
 
 sudo apt-get update
 sudo apt-get upgrade
@@ -100,6 +100,7 @@ echo " background randomizer, "
 path_dir=$HOME/.local/bin
 
 mv random_welcoming_screen $path_dir/
+#when using KDE, it's popup menager disables libnotify, just install colibri and enable it
 echo " time popup, "
 mv time-popup $path_dir/
 echo "reminding script,"
