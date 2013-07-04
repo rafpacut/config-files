@@ -8,7 +8,7 @@ mv .Xmodmap $HOME/
 xmodmap $HOME/.Xmodmap
 
 #checking whether necessary programs are installed:
-declare -a applications=( keepassx opera git lsscsi soundconverter pidgin fluxbox)
+declare -a applications=( keepassx opera git lsscsi vlc pidgin fluxbox vim)
 
 sudo apt-get update
 sudo apt-get upgrade
@@ -26,8 +26,7 @@ done
 
 echo "Download keepassx database"
 #xdg-open 'https://sites.google.com/site/rafalpacut/'
-wget "https://sites.google.com/site/rafalpacut/home/files/Rafal.kdb?attredirects=0&d=1" > "~/.Rafal.kdb"
-
+wget -O ~/.Rafal.kdb "https://sites.google.com/site/rafalpacut/home/files/Rafal.kdb?attredirects=0&d=1" 
 #my own PATH dir
 echo "making .local/bin"
 mkdir $HOME/.local/bin
@@ -89,6 +88,7 @@ cp $instal_dir/todone $path_dir/
 cp $instal_dir/todone-archive $path_dir/
 
 echo "configuring fluxbox"
+mkdir ~/.fluxbox
 instal_dir=$HOME/.fluxbox
 
 mv init $instal_dir/
