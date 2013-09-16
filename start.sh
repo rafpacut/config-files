@@ -105,3 +105,7 @@ echo " time popup, "
 mv time-popup $path_dir/
 echo "reminding script,"
 mv remind $path_dir/
+echo " wallpaper clock script, "
+mv wallpaperclock $path_dir/ 
+
+echo "Opera preferences and wallpapers available on drive.google.com"

@@ -14,8 +14,10 @@
 # wmnd &
 # wmsmixer -w &
 # idesk &
-gnome-terminal &
-"$HOME/.local/bin/./random_welcoming_screen" &
+
+~/.local/bin/wallpaper_clock &
+colibri &
+opera &
 
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.
