@@ -8,7 +8,7 @@ mv .Xmodmap $HOME/
 xmodmap $HOME/.Xmodmap
 
 #checking whether necessary programs are installed:
-declare -a applications=( keepassx opera git lsscsi vlc pidgin fluxbox vim libnotify-bin )
+declare -a applications=( keepassx firefox git lsscsi vlc pidgin fluxbox vim )
 
 sudo apt-get update
 sudo apt-get upgrade
@@ -75,18 +75,6 @@ xdg-open 'https://github.com/login'
 echo "are you done? [y/n]"
 read trigger
 
-echo "installing to-do manager:"
-instal_dir=$HOME/inf/sh-todo
-path_dir=$HOME/.local/bin
-
-git clone git@github.com:asb/sh-todo.git $instal_dir
-mv .sh-todo $HOME/
-mkdir $instal_dir/files
-mkdir $path_dir/sh-todo
-cp $instal_dir/todo $path_dir/
-cp $instal_dir/todone $path_dir/
-cp $instal_dir/todone-archive $path_dir/
-
 echo "configuring fluxbox"
 mkdir ~/.fluxbox
 instal_dir=$HOME/.fluxbox
@@ -95,11 +83,6 @@ mv init $instal_dir/
 mv keys $instal_dir/
 mv startup $instal_dir/
 
-echo "copying scripts:"
-echo " background randomizer, "
-path_dir=$HOME/.local/bin
-
-mv random_welcoming_screen $path_dir/
 #when using KDE, it's popup menager disables libnotify, just install colibri and enable it
 echo " time popup, "
 mv time-popup $path_dir/
@@ -108,4 +91,4 @@ mv remind $path_dir/
 echo " wallpaper clock script, "
 mv wallpaperclock $path_dir/ 
 
-echo "Opera preferences and wallpapers available on drive.google.com"
+echo "Opera/Firefox preferences, conky settings and wallpapers available on drive.google.com"
