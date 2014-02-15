@@ -8,7 +8,7 @@ mv .Xmodmap $HOME/
 xmodmap $HOME/.Xmodmap
 
 #checking whether necessary programs are installed:
-declare -a applications=( keepassx firefox git lsscsi vlc pidgin fluxbox vim )
+declare -a applications=( curl keepassx firefox git vlc pidgin fluxboxlvim colibri conky )
 
 sudo apt-get update
 sudo apt-get upgrade
@@ -20,13 +20,21 @@ do
 			echo "$i exists"
 		else
 			echo "$i doesn't exist"
-			sudo apt-get install $i
+			sudo apt-get install --assume-yes $i
 	fi
 done
 
+#pathogen for vim
+mkdir -p ~/.vim/autoload ~/.vim/bundle; \
+	curl -Sso ~/.vim/autoload/pathogen.vim \
+	    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+
+#NERDTree
+(cd ~/.vim/bundle; git clone https://github.com/scrooloose/nerdtree.git)
+
 echo "Download keepassx database"
 #xdg-open 'https://sites.google.com/site/rafalpacut/'
-wget -O ~/.Rafal.kdb "https://sites.google.com/site/rafalpacut/home/files/Rafal.kdb?attredirects=0&d=1" 
+wget -O ~/.Rafal.kdb "https://sites.google.com/site/rafalpacut/home/files/.Rafal.kdb?attredirects=0&d=1" 
 #my own PATH dir
 echo "making .local/bin"
 mkdir $HOME/.local/bin
@@ -40,9 +48,9 @@ echo "configurating git: "
 your_name='.'
 your_name2=','
 while [ $your_name != $your_name2 ]; do
-	echo "enter your name: "
+	echo "enter your username: "
 	read your_name
-	echo "please enter your name once more: "
+	echo "please enter your username once more: "
 	read your_name2
 done
 git config --global user.name "$your_name"
@@ -83,6 +91,8 @@ mv init $instal_dir/
 mv keys $instal_dir/
 mv startup $instal_dir/
 
+
+hTtps://sites.google.com/site/rafalpacut/home/files/.Rafal.kdb?attredirects=0&d=1
 #when using KDE, it's popup menager disables libnotify, just install colibri and enable it
 echo " time popup, "
 mv time-popup $path_dir/
