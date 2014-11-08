@@ -144,3 +144,14 @@ Control e :Exec $HOME/.local/bin/./time-popup
 
 #switch the keyboard layouts
 Control Mod1 k :ToggleCmd {Exec setxkbmap pl dvp && xmodmap ~/.Xmodmap}  {Exec setxkbmap pl && xmodmap ~/.Xmodmap}
+
+
+#volume control
+122 :Exec amixer set Master 5dB-
+123 :Exec amixer set Master 5dB+
+
+#mute/unmute control
+121 :ToggleCmd {Exec amixer set Master mute} {Exec amixer set Master unmute && amixer set Headphone toggle && amixer set Front toggle}
+
+#terminal under kde
+Mod1 F1 :Exec konsole

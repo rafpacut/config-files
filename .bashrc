@@ -24,6 +24,7 @@ fi
 PATH=$PATH:/home/rafal/.local/bin/
 export PATH
 
+export TERM=xterm-256color
 
 alias ls="\ls"
 alias mvcd="mv $1 $2 && cd $2"
@@ -36,6 +37,8 @@ alias remove="sudo apt-get remove"
 alias vol="amixer set Master"
 alias emacs="emacs --fullscreen --no-splash"
 alias mplayer="mplayer -fs -msglevel all=0"
+alias battery="acpi&&while sleep 2m; do acpi; done"
+alias search="sudo aptitude search"
 #alias g++="g++-4.4"
 
 #on start:

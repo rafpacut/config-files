@@ -37,7 +37,7 @@ session.screen0.demandsAttentionTimeout:	500
 session.screen0.rowPlacementDirection:	LeftToRight
 session.screen0.noFocusWhileTypingDelay:	0
 session.screen0.fullMaximization:	false
-session.screen0.workspaces:	5
+session.screen0.workspaces:	8	
 session.screen0.windowPlacement:	RowMinOverlapPlacement
 session.screen0.allowRemoteActions:	false
 session.screen0.tooltipDelay:	500
@@ -53,7 +53,7 @@ session.screen0.maxDisableMove:	false
 session.screen0.opaqueMove:	true
 session.screen0.menuDelay:	200
 session.screen0.defaultDeco:	NORMAL
-session.screen0.workspaceNames:	Terminal, Internet, Programming,Workspace 4,Workspace 5,Workspace 6,
+session.screen0.workspaceNames:	Terminal, Internet, Programming,Workspace 4,Workspace 5,Workspace 6, Workspace 7
 session.screen0.workspacewarping:	true
 session.screen0.maxIgnoreIncrement:	true
 session.screen0.tabFocusModel:	ClickToTabFocus
