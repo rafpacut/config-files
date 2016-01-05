@@ -5,6 +5,8 @@ path_to_db="$dir/db.txt"
 
 touch $path_to_db
 
+#next commands need to be run as root
+su
 sed -i "/# By default this script does nothing/a date +%s >> $path_to_db" /etc/rc.local
 
 
