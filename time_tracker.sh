@@ -7,12 +7,12 @@ touch $path_to_db
 
 #next commands need to be run as root
 su
-sed -i "/# By default this script does nothing/a date +%s >> $path_to_db" /etc/rc.local
+sed -i "/# By default this script does nothing/a date +%j:%s >> $path_to_db" /etc/rc.local
 
 
 #add on shutdown command
 #/ect/rc0.d/ is a directory containing symlinks to executable files
-on_shutdown="date +%s >> $path_to_db"
+on_shutdown="date +%j:%s >> $path_to_db"
 echo $on_shutdown > $dir/on_shutdown.sh
 
 chmod +x $dir/on_shutdown.sh
