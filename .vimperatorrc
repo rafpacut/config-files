@@ -1,0 +1,45 @@
+"3.9 (created: 2015/02/15 15:49:05)
+
+source! /home/rafal/.vimperatorrc.local
+
+" vim: set ft=vimperator:
+:set gui=nonavigation
+
+" Press n to go to the next tab
+noremap n :tabnext<CR>
+
+" Press p to go to the previous tab 
+noremap p :tabprevious<CR>
+
+
+
+" qmarks:
+" go<letter>
+" gn<letter> - in a new tab
+
+" facebook
+silent qmark f http://www.facebook.com/
+
+" reddit login page -> subreddits list
+silent qmark r http://www.reddit.com/subreddits/mine
+
+
+"tinyURLshortener on basis of https://github.com/blueyed/dotfiles/blob/master/vimperatorrc
+javascript << EOF
+function shortenURL(url) {
+	var req = new XMLHttpRequest();
+	req.open("GET", "http://tinyurl.com/api-create.php?url=" + encodeURIComponent(url), true);
+	req.onreadystatechange = function(ev) {
+		if( req.readyState == 4) {
+			if( req.status == 200 ) {
+				util.copyToClipboard(req.responseText.replace(/\s+$/, ''), true);
+			}
+			else {
+				liberator.echo(req.responseText);
+			}
+		}
+	}	
+	req.send(null);
+}
+EOF
+map <silent> gy :js shortenURL(buffer.URL)<cr>
