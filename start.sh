@@ -8,7 +8,7 @@ mv .Xmodmap $HOME/
 xmodmap $HOME/.Xmodmap
 
 #checking whether necessary programs are installed:
-declare -a applications=( curl keepassx firefox git vlc pidgin fluxboxlvim colibri conky )
+declare -a applications=( curl keepassx firefox git vlc fluxbox vim colibri wicd-gtk )
 
 sudo apt-get update
 sudo apt-get upgrade
