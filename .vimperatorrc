@@ -23,6 +23,17 @@ silent qmark f http://www.facebook.com/
 " reddit login page -> subreddits list
 silent qmark r http://www.reddit.com/subreddits/mine
 
+" google translate
+silent qmark t https://translate.google.pl/
+
+" coursera machine learning welcome page
+silent qmark c https://www.coursera.org/learn/machine-learning/home/welcome
+
+" github login page -> repositories
+silent qmark g https://github.com/login?return_to=/rafpacut?tab=repositories
+
+" hacker news
+silent qmark h https://news.ycombinator.com/
 
 "tinyURLshortener on basis of https://github.com/blueyed/dotfiles/blob/master/vimperatorrc
 javascript << EOF
