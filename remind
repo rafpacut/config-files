@@ -1,13 +1,51 @@
 #!/bin/bash
-#To Do notes: - jako czas przyjmuj hh:mm i | cut wyjmuj czas dzialania,
-
-hour=$1
-minutes=$2
-message=$3
 
 
-let time=$hour*60+$minutes
-let actual_time=`date +%H`*60+`date +%M`
-let time2sleep=$time-$actual_time
-sleep "$time2sleep"m
-notify-send -u critical "$time" "$message"
+while getopts ":et:c:fh" opt; do
+	case $opt in
+		e) 
+			#eye relief option
+			while true; do
+				sleep 20m;
+				notify-send "Look away for 20s";
+				sleep 20s;
+				say "20s passed";
+				#notify-send "20s passed";
+			done
+			;;
+
+		t)
+			#test option: display message
+			notify-send -u critical "$OPTARG"
+			;;
+
+		c)
+			#optarg might not be in sleep argument convention, how to check that?
+			sleep $OPTARG;
+
+			say "$OPTARG passed";
+			;;
+
+		f)
+			echo "emergency reminder"
+			sleep 20s && notify-send "20s passed"
+			;;
+
+		h)
+			echo "remind [:et:c:fh] message
+				Display a message after certain time.
+
+				-e Eye relief option. Every 20min displays a message to look away. After 20s plays a sound.
+				-t Test only. Just displays a message.
+				-c [arg] sleeps for arg. Arg should be in GNU sleep argument notation.
+				-f In case i forgot, or couldn't look away during (-e) measures out 20s.
+				-h This help.
+			"
+			;;
+
+
+		\?)
+			echo "Invalid option: -$OPTARG" >&2
+			;;
+	esac
+done
