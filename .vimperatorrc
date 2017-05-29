@@ -5,11 +5,12 @@ source! /home/rafal/.vimperatorrc.local
 " vim: set ft=vimperator:
 :set gui=nonavigation
 
-" Press n to go to the next tab
-noremap n :tabnext<CR>
-
 " Press p to go to the previous tab 
-noremap p :tabprevious<CR>
+noremap . :tabprevious<CR>
+
+" Press n to go to the next tab
+noremap p :tabnext<CR>
+
 
 
 
@@ -20,20 +21,22 @@ noremap p :tabprevious<CR>
 " facebook
 silent qmark f http://www.facebook.com/
 
+" messenger 
+silent qmark m https://www.messenger.com/
+
 " reddit login page -> subreddits list
 silent qmark r http://www.reddit.com/subreddits/mine
 
 " google translate
 silent qmark t https://translate.google.pl/
 
-" coursera machine learning welcome page
-silent qmark c https://www.coursera.org/learn/machine-learning/home/welcome
-
 " github login page -> repositories
 silent qmark g https://github.com/login?return_to=/rafpacut?tab=repositories
 
 " hacker news
 silent qmark h https://news.ycombinator.com/
+
+map<silent> gw :bmarks! -tags weather
 
 "tinyURLshortener on basis of https://github.com/blueyed/dotfiles/blob/master/vimperatorrc
 javascript << EOF
@@ -54,3 +57,7 @@ function shortenURL(url) {
 }
 EOF
 map <silent> gy :js shortenURL(buffer.URL)<cr>
+
+" google maps direction
+" javascript << EOF
+" function
