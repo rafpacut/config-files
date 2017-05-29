@@ -11,11 +11,16 @@ noremap . :tabprevious<CR>
 " Press n to go to the next tab
 noremap p :tabnext<CR>
 
+" download progress in a new tab
+command sth :tabopen  about:downloads
+
+" jump list switching back and forth between opened tabs, not reopening them inside a tab.
+" [count]<C-^> kinda will have to do. It takes you to previous [count] selected tab.
 
 
 
 " qmarks:
-" go<letter>
+" go<letter> - in this tab
 " gn<letter> - in a new tab
 
 " facebook
