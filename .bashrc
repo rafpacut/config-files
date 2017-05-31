@@ -21,6 +21,21 @@ if [ "$TERM" != dumb ]; then
 
 fi
 
+opencvg++ ()
+{
+	g++ -Wall -std=c++11 $1 `pkg-config opencv --cflags --libs`
+}
+
+opencvgdebug++ ()
+{
+	g++ -ggdb -g3 -Wall -std=c++11 $1 `pkg-config opencv --cflags --libs`
+}
+
+opencvGtestg++ ()
+{
+	g++ -Wall -std=c++11 $1 `pkg-config opencv --cflags --libs` -lgtest -pthread 
+}
+
 PATH=$PATH:/home/rafal/.local/bin/
 export PATH
 
@@ -32,14 +47,19 @@ alias musb="sudo mount /dev/sdb/ /media/"
 alias po="sudo poweroff"
 alias reboot="sudo reboot"
 alias la="ls -a"
-alias install="sudo apt-get update && sudo apt-get upgrade && sudo apt-get install"
+alias install="sudo aptitude install"
 alias remove="sudo apt-get remove"
-alias vol="amixer set Master"
-alias emacs="emacs --fullscreen --no-splash"
-alias mplayer="mplayer -fs -msglevel all=0"
 alias battery="acpi&&while sleep 2m; do acpi; done"
 alias search="sudo aptitude search"
-#alias g++="g++-4.4"
+alias eg++='g++ -std=c++11 -I/usr/include/eigen3'
+alias g++='g++ -std=c++11'
+alias ocvg++=opencvg++
+alias ocvdg++=opencvgdebug++
+alias gtestg++=opencvGtestg++
+alias untargz="tar -zxvf"
 
 #on start:
 #fortune -a
+
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
