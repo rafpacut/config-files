@@ -4,6 +4,12 @@ if [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
 
+#Fire up tmux if it's installed and we are not nesting
+if command -v tmux>/dev/null; then
+  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+fi
+
+#Always ls after cd
 cd () 
 {
   if [ -n "$1" ]; then
@@ -11,6 +17,22 @@ cd ()
   else
 	builtin cd "$@" && \ls
   fi
+}
+
+#Simple trash
+trash()
+{
+	mv "$@" "$HOME/.trash/"
+}
+
+trashls()
+{
+	ls "$HOME/.trash"
+}
+
+trashempty()
+{
+	rm "$HOME/.trash/"*
 }
 
 #The color thing
@@ -21,19 +43,24 @@ if [ "$TERM" != dumb ]; then
 
 fi
 
-opencvg++ ()
+function mvcd ()
 {
-	g++ -Wall -std=c++11 $1 `pkg-config opencv --cflags --libs`
+     num_of_files=$(($# - 1))
+     for i in $(eval echo {1..$num_of_files})
+     do
+         eval mv \${$i} \${$#}
+     done
+     eval cd \${$#}
 }
 
-opencvgdebug++ ()
+function cpcd ()
 {
-	g++ -ggdb -g3 -Wall -std=c++11 $1 `pkg-config opencv --cflags --libs`
-}
-
-opencvGtestg++ ()
-{
-	g++ -Wall -std=c++11 $1 `pkg-config opencv --cflags --libs` -lgtest -pthread 
+     num_of_files=$(($# - 1))
+     for i in $(eval echo {1..$num_of_files})
+     do
+         eval cp -r \${$i} \${$#}
+     done
+     eval cd \${$#}
 }
 
 PATH=$PATH:/home/rafal/.local/bin/
@@ -42,24 +69,25 @@ export PATH
 export TERM=xterm-256color
 
 alias ls="\ls"
-alias mvcd="mv $1 $2 && cd $2"
-alias musb="sudo mount /dev/sdb/ /media/"
-alias po="sudo poweroff"
 alias reboot="sudo reboot"
 alias la="ls -a"
-alias install="sudo aptitude install"
-alias remove="sudo apt-get remove"
-alias battery="acpi&&while sleep 2m; do acpi; done"
+alias install="apt install"
+alias remove="apt remove"
 alias search="sudo aptitude search"
-alias eg++='g++ -std=c++11 -I/usr/include/eigen3'
-alias g++='g++ -std=c++11'
-alias ocvg++=opencvg++
-alias ocvdg++=opencvgdebug++
-alias gtestg++=opencvGtestg++
 alias untargz="tar -zxvf"
+alias polsl="cd /home/rafal/inf/polsl/ && vim"
 
 #on start:
 #fortune -a
 
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+CPLUS_INCLUDE_PATH="/opt/boost_1_66_0"
+
+#prevents locking the whole terminal when accidentaly hitting Ctrl-s instead of VIM YouCompleteMe Plugin Ctrl-n name autocomplete
+stty -ixon
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
