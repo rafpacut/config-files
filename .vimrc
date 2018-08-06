@@ -90,7 +90,7 @@ colorscheme zenburn
 syntax on
 
 " Function to quickly output a shell command output to a new buffer
-command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
+command! -complete=shellcmd -nargs=0 Shell call s:RunShellCommand(<q-args>)
 function! s:RunShellCommand(cmdline)
   echo a:cmdline
   let expanded_cmdline = a:cmdline
@@ -111,4 +111,4 @@ function! s:RunShellCommand(cmdline)
 endfunction
 
 " Output compile messages in a new buffer with :Make
-command! -complete=file -nargs=0 Make call s:RunShellCommand('make |& less -R')
+command! -complete=file -nargs=0 Make call s:RunShellCommand('make')
