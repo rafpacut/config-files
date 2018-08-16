@@ -63,10 +63,11 @@ function cpcd ()
      eval cd \${$#}
 }
 
-PATH=$PATH:/home/rafal/.local/bin/
+PATH="$PATH:/home/rafal/.local/bin/"
 export PATH
 
-export TERM=xterm-256color
+#export TERM=xterm-256color
+export TERM=konsole-256color
 
 alias ls="\ls"
 alias reboot="sudo reboot"
@@ -81,7 +82,9 @@ alias polsl="cd /home/rafal/inf/polsl/ && vim"
 #fortune -a
 
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+#Most likely incorrect
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
 CPLUS_INCLUDE_PATH="/opt/boost_1_66_0"
 
 #prevents locking the whole terminal when accidentaly hitting Ctrl-s instead of VIM YouCompleteMe Plugin Ctrl-n name autocomplete
