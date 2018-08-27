@@ -85,6 +85,7 @@ let mapleader=","
 set number
 set autochdir " (the working directory is always the one where the active buffer is located)
 set t_Co=256
+set splitright
 colorscheme zenburn
 
 syntax on
