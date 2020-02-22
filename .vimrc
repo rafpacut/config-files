@@ -81,6 +81,7 @@ filetype plugin indent on    " required
 
 
 map <C-n> :NERDTree <Enter>
+map <C-t> :vert term <Enter>
 let mapleader=","
 set number
 set autochdir " (the working directory is always the one where the active buffer is located)
