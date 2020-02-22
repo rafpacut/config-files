@@ -1,2 +1,0 @@
-#!/bin/bash
-notify-send -u critical "`date +%H`:`date +%M`"
