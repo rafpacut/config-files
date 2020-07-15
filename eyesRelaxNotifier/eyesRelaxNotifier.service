@@ -1,0 +1,9 @@
+[Unit]
+Description=20-20-20 rule reminder for your eye health
+
+[Service]
+Type=oneshot
+ExecStart=/home/rafal/.config/systemd/user/eyesRelaxNotifier.sh
+
+[Install]
+WantedBy=graphical.target

@@ -1,0 +1,9 @@
+[Unit]
+Description=20-20-20 rule reminder for your eye health
+
+[Timer]
+OnUnitActiveSec=20min
+OnBootSec=20min
+
+[Install]
+WantedBy=timers.target
