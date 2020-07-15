@@ -3,7 +3,7 @@
 source! /home/rafal/.vimperatorrc.local
 
 " vim: set ft=vimperator:
-:set gui=nonavigation
+" :set gui=nonavigation
 
 " Press p to go to the previous tab 
 noremap . :tabprevious<CR>
