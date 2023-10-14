@@ -79,7 +79,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git fzf)
+
+export FZF_BASE=/home/rafal/.fzf
 
 source $ZSH/oh-my-zsh.sh
 
@@ -132,7 +134,7 @@ trashls()
 
 trashempty()
 {
-	rm "$HOME/.trash/"*
+	rm -rf "$HOME/.trash/"*
 }
 
 #The color thing
@@ -140,7 +142,6 @@ if [ "$TERM" != dumb ]; then
 	[ -e "$HOME/.dircolors" ] && DIR_COLORS="$HOME/.dircolors"
 	[ -e "$DIR_COLORS" ] || DIR_COLORS=""
 	eval "`dircolors -b $DIR_COLORS`"
-
 fi
 
 function mvcd ()
@@ -176,3 +177,5 @@ PATH=$PATH:$HOME/.local/bin
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
