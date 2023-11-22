@@ -1,3 +1,10 @@
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+    if [ -t 1 ]; then # Check if stdout is a terminal
+        exec tmux
+    else
+        echo "Not starting tmux because stdout is not a terminal" >&2
+    fi
+fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -164,9 +171,7 @@ function cpcd ()
      eval cd \${$#}
 }
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-	  exec tmux
-fi
+
 
 alias ls="\ls"
 alias la="ls -a"
@@ -174,8 +179,10 @@ alias untargz="tar -zxvf"
 alias untar="tar xzf"
 
 PATH=$PATH:$HOME/.local/bin
+PATH=$PATH:/usr/local/go/bin
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
